@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EncodeIQ — AI Video Optimization for Professional Pipelines</title>
+  <meta name="description" content="EncodeIQ reduces video bitrate by up to 40% with no perceptual quality loss. Neural-network optimization that slots into your existing CDN pipeline." />
+  <meta property="og:title" content="EncodeIQ — AI Video Optimization" />
+  <meta property="og:description" content="Cut bitrate by 40%. Quality unchanged. Neural-network optimization for professional video pipelines." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts: JetBrains Mono (display) + Geist (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo" aria-label="EncodeIQ home">
+        <!-- SVG Logo inline -->
+        <svg class="logo-svg" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Waveform bars that shrink right-to-left (bitrate reduction) -->
+          <rect x="0" y="8" width="5" height="16" rx="1.5" fill="currentColor"/>
+          <rect x="8" y="4" width="5" height="24" rx="1.5" fill="currentColor"/>
+          <rect x="16" y="10" width="5" height="12" rx="1.5" fill="currentColor"/>
+          <rect x="24" y="6" width="5" height="20" rx="1.5" fill="currentColor"/>
+          <!-- Arrow right -->
+          <path d="M36 16 L42 16 M39 12 L43 16 L39 20" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Optimized waveform (shorter bars) -->
+          <rect x="46" y="11" width="4" height="10" rx="1.5" fill="var(--color-accent)"/>
+          <rect x="53" y="8" width="4" height="16" rx="1.5" fill="var(--color-accent)"/>
+          <rect x="60" y="12" width="4" height="8" rx="1.5" fill="var(--color-accent)"/>
+          <rect x="67" y="9" width="4" height="14" rx="1.5" fill="var(--color-accent)"/>
+          <!-- Wordmark -->
+          <text x="78" y="22" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="currentColor">IQ</text>
+        </svg>
+        <span class="logo-text">EncodeIQ</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how-it-works">Product</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button data-theme-toggle aria-label="Switch to light mode" class="theme-toggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#cta" class="btn btn-ghost">Sign in</a>
+        <a href="#cta" class="btn btn-primary">Request access</a>
+      </div>
+
+      <button class="nav-mobile-toggle" aria-label="Open menu" id="menuToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#how-it-works">Product</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta" class="btn btn-primary" style="margin-top:8px;">Request access</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-content container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Powered by SPAIQ Neural Network Technology</span>
+        </div>
+        <h1 class="hero-headline">
+          Cut video bitrate<br class="br-desktop"> by <span class="accent-text">40%.</span><br>
+          Quality unchanged.
+        </h1>
+        <p class="hero-sub">
+          EncodeIQ applies ML-based perceptual optimization as an upstream layer in your video delivery pipeline — smaller files, same VMAF, unchanged CDN.
+        </p>
+        <div class="hero-ctas">
+          <a href="#cta" class="btn btn-primary btn-lg">Start free trial</a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">
+            See how it works
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <span class="metric-value accent-text">30–40%</span>
+            <span class="metric-label">Bitrate reduction</span>
+          </div>
+          <div class="hero-metric-divider"></div>
+          <div class="hero-metric">
+            <span class="metric-value">VMAF ≥ 93</span>
+            <span class="metric-label">Quality guarantee</span>
+          </div>
+          <div class="hero-metric-divider"></div>
+          <div class="hero-metric">
+            <span class="metric-value">Zero</span>
+            <span class="metric-label">Pipeline changes</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══ TRUSTED BY strip ═══ -->
+    <section class="trust-strip">
+      <div class="container">
+        <p class="trust-label">Works with your existing infrastructure</p>
+        <div class="trust-logos">
+          <div class="trust-logo">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Amazon CloudFront">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">CloudFront</text>
+            </svg>
+          </div>
+          <div class="trust-logo">
+            <svg viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cloudflare">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">Cloudflare</text>
+            </svg>
+          </div>
+          <div class="trust-logo">
+            <svg viewBox="0 0 50 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fastly">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">Fastly</text>
+            </svg>
+          </div>
+          <div class="trust-logo">
+            <svg viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Akamai">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">Akamai</text>
+            </svg>
+          </div>
+          <div class="trust-logo">
+            <svg viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Amazon S3">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">Amazon S3</text>
+            </svg>
+          </div>
+          <div class="trust-logo">
+            <svg viewBox="0 0 68 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Backblaze B2">
+              <text x="0" y="18" font-family="'Geist', sans-serif" font-size="13" font-weight="500" fill="currentColor">Backblaze B2</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="section how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ARCHITECTURE</span>
+          <h2>Drop into your pipeline.<br>Optimize everything.</h2>
+          <p class="section-desc">EncodeIQ sits upstream of your CDN as a non-destructive optimization pass. Your delivery infrastructure stays exactly as-is — you just serve smaller files.</p>
+        </div>
+
+        <div class="pipeline-diagram">
+          <!-- Step 1 -->
+          <div class="pipeline-step reveal">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4 16h32" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="10" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="16" cy="12" r="1.5" fill="currentColor"/>
+                <circle cx="22" cy="12" r="1.5" fill="currentColor"/>
+                <path d="M12 24l4-4 4 4 4-6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="step-number mono">01</div>
+            <h3>Ingest Mezzanines</h3>
+            <p>Connect your S3 bucket or upload ProRes / DNxHD mezzanines directly. EncodeIQ validates format, resolution, and codec profile before queuing.</p>
+            <ul class="step-details">
+              <li>Amazon S3, Cloudflare R2, Backblaze B2</li>
+              <li>Apple ProRes (Proxy → 4444 XQ)</li>
+              <li>Avid DNxHD 120 / 185</li>
+              <li>Resumable direct uploads via browser</li>
+            </ul>
+          </div>
+
+          <div class="pipeline-arrow" aria-hidden="true">
+            <div class="arrow-line"></div>
+            <div class="arrow-label mono">SPAIQ Engine</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="pipeline-step reveal">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="14" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <!-- Neural network nodes -->
+                <circle cx="10" cy="20" r="2" fill="var(--color-accent)"/>
+                <circle cx="20" cy="12" r="2" fill="var(--color-accent)"/>
+                <circle cx="20" cy="28" r="2" fill="var(--color-accent)"/>
+                <circle cx="30" cy="20" r="2" fill="var(--color-accent)"/>
+                <circle cx="20" cy="20" r="3" fill="var(--color-accent)" opacity="0.3"/>
+                <path d="M12 20h6M20 14v4M20 22v4M22 20h6" stroke="var(--color-accent)" stroke-width="1" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="step-number mono accent-text">02</div>
+            <h3>Neural Optimization</h3>
+            <p>SPAIQ's perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible — without visible degradation.</p>
+            <ul class="step-details">
+              <li>Frame-level perceptual scoring</li>
+              <li>VMAF quality targeting (strict or aggressive)</li>
+              <li>Parallel Fargate tasks — no waiting</li>
+              <li>Before/after frame comparison</li>
+            </ul>
+          </div>
+
+          <div class="pipeline-arrow" aria-hidden="true">
+            <div class="arrow-line"></div>
+            <div class="arrow-label mono">Optimized output</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="pipeline-step reveal">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 28 L20 8 L32 28 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M14 22 h12" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M11 26 h18" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                <circle cx="20" cy="8" r="2" fill="var(--color-accent)"/>
+              </svg>
+            </div>
+            <div class="step-number mono">03</div>
+            <h3>Deliver via Your CDN</h3>
+            <p>Optimized files land in your origin S3 bucket at the same paths. Your CDN, URLs, and playback infrastructure are completely unchanged — only the file size shrinks.</p>
+            <ul class="step-details">
+              <li>In-place overwrite or side-by-side output</li>
+              <li>Same object keys — zero CDN reconfiguration</li>
+              <li>HLS/DASH ABR ladder support (Mode B)</li>
+              <li>Estimated CDN cost reduction dashboard</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Code block showing metrics output -->
+        <div class="metrics-output reveal">
+          <div class="code-header">
+            <div class="code-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="code-title mono">optimization-result.json</span>
+          </div>
+          <pre class="code-block"><code><span class="json-brace">{</span>
+  <span class="json-key">"input_size_bytes"</span>: <span class="json-num">5368709120</span>,    <span class="json-comment">// 5.0 GB ProRes HQ</span>
+  <span class="json-key">"output_size_bytes"</span>: <span class="json-num">3221225472</span>,   <span class="json-comment">// 3.0 GB optimized</span>
+  <span class="json-key">"savings_percent"</span>: <span class="json-accent">40.0</span>,
+  <span class="json-key">"vmaf_score"</span>: <span class="json-accent">96.2</span>,
+  <span class="json-key">"vmaf_source"</span>: <span class="json-num">98.1</span>,
+  <span class="json-key">"vmaf_delta"</span>: <span class="json-num">-1.9</span>,
+  <span class="json-key">"resolution"</span>: <span class="json-str">"1920x1080"</span>,
+  <span class="json-key">"output_codec"</span>: <span class="json-str">"prores_ks HQ"</span>,
+  <span class="json-key">"processing_time_seconds"</span>: <span class="json-num">1245.3</span>
+<span class="json-brace">}</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ═══ -->
+    <section class="section features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">FEATURES</span>
+          <h2>Everything a professional<br>video pipeline needs.</h2>
+        </div>
+
+        <div class="features-grid">
+
+          <div class="feature-card reveal feature-card--large">
+            <div class="feature-card-inner">
+              <div class="feature-tag">Mode A</div>
+              <h3>Pure Compression Optimization</h3>
+              <p>Optimize ProRes and DNxHD mezzanines without touching the container format, codec family, or delivery URLs. Your CDN serves smaller files with zero reconfiguration.</p>
+              <div class="feature-visual">
+                <div class="compression-bars">
+                  <div class="bar-group">
+                    <div class="bar bar-before" style="--h:100%"></div>
+                    <span class="bar-label">Before</span>
+                  </div>
+                  <div class="bar-group">
+                    <div class="bar bar-after" style="--h:60%"></div>
+                    <span class="bar-label accent-text">After</span>
+                  </div>
+                </div>
+                <div class="compression-stat">
+                  <span class="stat-value accent-text">40%</span>
+                  <span class="stat-unit">smaller</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-inner">
+              <div class="feature-tag">Mode B</div>
+              <h3>ABR Ladder Generation</h3>
+              <p>Build a complete SPAIQ-optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p>
+              <div class="abr-ladder">
+                <div class="ladder-rung"><span class="mono">2160p</span><div class="rung-bar" style="--w:90%"></div></div>
+                <div class="ladder-rung"><span class="mono">1080p</span><div class="rung-bar" style="--w:65%"></div></div>
+                <div class="ladder-rung"><span class="mono">720p</span><div class="rung-bar" style="--w:42%"></div></div>
+                <div class="ladder-rung"><span class="mono">480p</span><div class="rung-bar" style="--w:25%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-inner">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
+              </div>
+              <h3>VMAF Quality Guarantee</h3>
+              <p>Set a VMAF floor (e.g., ≥ 93). EncodeIQ will never deliver a file below your threshold — strict mode enforces it per asset.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-inner">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+              </div>
+              <h3>S3-Native Integration</h3>
+              <p>Point EncodeIQ at an ingress bucket prefix. It pulls, processes, and pushes to your origin — all via S3-compatible APIs. Works with R2, B2, and MinIO too.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-inner">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <h3>Visual Before/After</h3>
+              <p>Representative frame grabs — source vs. optimized side by side — delivered with every job. Verify quality visually, not just by metrics.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal feature-card--large">
+            <div class="feature-card-inner">
+              <div class="feature-tag">Pay-as-you-go</div>
+              <h3>Usage-Based Billing</h3>
+              <p>Pay only for minutes of video processed. Three tiers match your content mix — no contracts, no minimums, no per-seat pricing.</p>
+              <div class="billing-tiers">
+                <div class="billing-tier">
+                  <span class="tier-badge">SD</span>
+                  <span class="tier-desc">Up to 720p</span>
+                </div>
+                <div class="billing-tier billing-tier--accent">
+                  <span class="tier-badge">HD</span>
+                  <span class="tier-desc">Up to 1080p</span>
+                </div>
+                <div class="billing-tier">
+                  <span class="tier-badge">4K+</span>
+                  <span class="tier-desc">UHD &amp; beyond</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section class="section stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-number mono accent-text">30–40<span class="stat-unit">%</span></div>
+            <div class="stat-label">Bitrate reduction on ProRes and DNxHD mezzanines</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number mono">≥ 93<span class="stat-unit"> VMAF</span></div>
+            <div class="stat-label">Perceptual quality floor, guaranteed per asset</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number mono accent-text">6</div>
+            <div class="stat-label">ProRes profiles supported: Proxy through 4444 XQ</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-number mono">0</div>
+            <div class="stat-label">CDN or delivery infrastructure changes required</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ USE CASES ═══ -->
+    <section class="section use-cases" id="use-cases">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">USE CASES</span>
+          <h2>Built for every professional<br>video workflow.</h2>
+        </div>
+
+        <div class="use-cases-grid">
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="7" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M13 12l7 4-7 4V12z" fill="var(--color-accent)"/>
+              </svg>
+            </div>
+            <h3>VOD Libraries</h3>
+            <p>Optimize entire content catalogs stored in S3. Submit a bucket prefix, get back a fully optimized library at the same paths. CDN costs drop immediately.</p>
+          </div>
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="16" cy="10" r="2.5" fill="var(--color-accent)"/>
+                <circle cx="10" cy="22" r="2.5" fill="currentColor"/>
+                <circle cx="22" cy="22" r="2.5" fill="currentColor"/>
+                <path d="M16 12.5 L10 19.5 M16 12.5 L22 19.5 M10 22 L22 22" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>UGC &amp; Social Platforms</h3>
+            <p>Reduce egress costs at scale. Each uploaded file is independently optimized — parallel Fargate tasks mean thousands of assets processed simultaneously.</p>
+          </div>
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 26 L16 6 L26 26 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M11 20h10" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8.5 24h15" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Post-Production Houses</h3>
+            <p>Compress mezzanine archives without changing format or codec family. Store more ProRes at lower cost — original quality is preserved for future re-encodes.</p>
+          </div>
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="17" y="4" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="4" y="17" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="17" y="17" width="11" height="11" rx="2" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M22 22l1.5 1.5L26 20" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Enterprise OTT</h3>
+            <p>Slot EncodeIQ into your existing Step Functions or media workflow. REST API-first design integrates with any orchestration system via webhook callbacks.</p>
+          </div>
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4 C10 4 6 9 6 14 C6 19 9 22 12 24 L12 26 L20 26 L20 24 C23 22 26 19 26 14 C26 9 22 4 16 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M12 26 L20 26 M13 28 L19 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M13 14 L15 16 L19 12" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Corporate &amp; Education</h3>
+            <p>Training video, e-learning content, and internal communications — reduce storage and delivery costs without touching your LMS or existing integrations.</p>
+          </div>
+          <div class="use-case reveal">
+            <div class="use-case-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4 14 h24" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <rect x="8" y="17" width="6" height="4" rx="1" fill="var(--color-accent)" opacity="0.6"/>
+                <rect x="17" y="17" width="9" height="4" rx="1" fill="currentColor" opacity="0.2"/>
+                <circle cx="10" cy="11" r="1.5" fill="currentColor"/>
+                <circle cx="16" cy="11" r="1.5" fill="currentColor"/>
+                <circle cx="22" cy="11" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>SaaS Video Platforms</h3>
+            <p>Offer customers smaller storage footprints and lower CDN bills. EncodeIQ multi-tenant architecture is built for resale — each customer gets isolated projects and billing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRICING ═══ -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">PRICING</span>
+          <h2>Simple, usage-based pricing.</h2>
+          <p class="section-desc">Pay per minute of video processed. No monthly minimums, no seat licenses, no surprises. Usage billed through Stripe at the end of each month.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card reveal">
+            <div class="pricing-tier-label">SD</div>
+            <div class="pricing-price">
+              <span class="price-amount mono">$0.15</span>
+              <span class="price-period">/ minute</span>
+            </div>
+            <p class="pricing-desc">Standard definition — up to 720p resolution</p>
+            <ul class="pricing-features">
+              <li>Up to 1280×720</li>
+              <li>ProRes Proxy, LT, 422</li>
+              <li>Fargate 2 vCPU / 8 GB</li>
+              <li>VMAF quality targeting</li>
+              <li>S3 ingress &amp; egress</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-full">Get started</a>
+          </div>
+
+          <div class="pricing-card pricing-card--featured reveal">
+            <div class="pricing-featured-badge">Most popular</div>
+            <div class="pricing-tier-label accent-text">HD</div>
+            <div class="pricing-price">
+              <span class="price-amount mono accent-text">$0.25</span>
+              <span class="price-period">/ minute</span>
+            </div>
+            <p class="pricing-desc">High definition — up to 1080p resolution</p>
+            <ul class="pricing-features">
+              <li>Up to 1920×1080</li>
+              <li>Full ProRes family + DNxHD</li>
+              <li>Fargate 4 vCPU / 16 GB</li>
+              <li>Visual before/after frames</li>
+              <li>Mode A &amp; Mode B</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary btn-full">Get started</a>
+          </div>
+
+          <div class="pricing-card reveal">
+            <div class="pricing-tier-label">4K+</div>
+            <div class="pricing-price">
+              <span class="price-amount mono">$0.45</span>
+              <span class="price-period">/ minute</span>
+            </div>
+            <p class="pricing-desc">Ultra high definition — 4K and above</p>
+            <ul class="pricing-features">
+              <li>4K, 6K, 8K UHD</li>
+              <li>ProRes 4444/4444 XQ</li>
+              <li>Fargate 8 vCPU / 30 GB</li>
+              <li>Priority processing queue</li>
+              <li>Dedicated support SLA</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-full">Get started</a>
+          </div>
+        </div>
+
+        <p class="pricing-note">All tiers include: VMAF quality reports, job metrics dashboard, S3 integration, side-by-side quality preview, and Stripe-managed invoicing. Volume discounts available — <a href="#cta" class="link-accent">contact us</a>.</p>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ABOUT</span>
+          <h2>Making Video Optimization<br>Intelligent, Measurable, and Effortless</h2>
+        </div>
+
+        <div class="about-layout">
+          <!-- Mission -->
+          <div class="about-mission reveal">
+            <h3>Our Mission</h3>
+            <p>As video consumption explodes and delivery costs scale with every stream, organizations face an urgent challenge — reducing bandwidth spend without sacrificing the viewing experience their audiences expect.</p>
+            <p>EncodeIQ makes this possible. We bring neural-network perceptual optimization to professional video pipelines, revealing exactly how much bitrate can be removed while maintaining studio-grade quality — measured, guaranteed, and auditable.</p>
+            <blockquote class="about-callout">
+              <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. SPAIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can.</blockquote>
+          </div>
+
+          <!-- Company -->
+          <div class="about-company reveal">
+            <div class="about-company-card">
+              <div class="about-company-header">
+                <svg class="about-company-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="4" width="32" height="32" rx="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+                  <circle cx="20" cy="20" r="4" fill="var(--color-accent)" opacity="0.5"/>
+                  <circle cx="20" cy="20" r="2" fill="var(--color-accent)"/>
+                </svg>
+                <div>
+                  <h3>Graziano Labs Corp.</h3>
+                  <span class="about-location">San Mateo, California</span>
+                </div>
+              </div>
+              <p>A California corporation building AI-powered optimization tools for professional video infrastructure. Graziano Labs sits at the intersection of machine learning, video engineering, cloud architecture, and content delivery economics.</p>
+              <div class="about-expertise">
+                <div class="expertise-item">
+                  <span class="expertise-title">Video Engineering</span>
+                  <span class="expertise-desc">ProRes, DNxHD, HEVC, AV1 codecs</span>
+                </div>
+                <div class="expertise-item">
+                  <span class="expertise-title">Perceptual Quality</span>
+                  <span class="expertise-desc">VMAF-driven optimization</span>
+                </div>
+                <div class="expertise-item">
+                  <span class="expertise-title">Cloud Architecture</span>
+                  <span class="expertise-desc">AWS, Fargate, S3-native pipelines</span>
+                </div>
+                <div class="expertise-item">
+                  <span class="expertise-title">Delivery Economics</span>
+                  <span class="expertise-desc">CDN cost reduction at scale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder -->
+          <div class="about-founder reveal">
+            <div class="about-founder-card">
+              <h3>Marco Graziano</h3>
+              <span class="about-role">Founder &amp; CEO</span>
+              <p>Marco brings extensive experience in product leadership and technical architecture across consumer electronics, video streaming systems, and enterprise-grade cloud software. His deep expertise in video compression, broadcast standards (DVB-T, SDI, ST 2110, IPTV), and CDN delivery economics drives EncodeIQ's technical vision.</p>
+              <p>With a proven track record building products at the intersection of video, cloud, and AI — Marco leads Graziano Labs' mission to make professional video optimization as simple as pointing at an S3 bucket.</p>
+            </div>
+          </div>
+
+          <!-- SPAIQ credit -->
+          <div class="about-credit reveal">
+            <p>EncodeIQ is built on <span class="accent-text">SPAIQ</span> — the neural-network perceptual video optimizer developed by Small Pixels. SPAIQ's frame-level ML analysis is the engine behind EncodeIQ's quality-preserving compression, delivering measurable bitrate savings verified against industry-standard VMAF scores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section faq" id="faq">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2>Frequently asked questions.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>What formats does EncodeIQ support?</summary>
+            <p>EncodeIQ accepts all Apple ProRes profiles (Proxy, LT, 422, 422 HQ, 4444, 4444 XQ) and Avid DNxHD 120/185 in QuickTime (.mov) containers. High-bitrate HEVC in .mov is also supported. Input and output codec families are preserved — a ProRes HQ in becomes a smaller ProRes HQ out.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Does EncodeIQ change my CDN configuration?</summary>
+            <p>No. In Mode A (pure compression), EncodeIQ writes optimized files back to the same S3 paths. Your CDN, player, and delivery infrastructure require zero changes. On next cache refresh, CDNs automatically serve the smaller files.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How is quality preserved?</summary>
+            <p>SPAIQ uses VMAF-driven optimization — it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How does billing work?</summary>
+            <p>Billing is per minute of video processed, metered at SD / HD / 4K+ resolution tiers. Usage is aggregated monthly and billed via Stripe. You receive an itemized invoice per project showing minutes processed by resolution tier and total cost. No minimums or commitments.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Can I run EncodeIQ on my own AWS account?</summary>
+            <p>EncodeIQ is a hosted service — we run the Fargate processing infrastructure so you don't have to. Your S3 buckets remain in your own AWS account; EncodeIQ accesses them via cross-account IAM roles that you provision and control. A self-hosted option for enterprise customers is on the roadmap.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What is SPAIQ?</summary>
+            <p>SPAIQ is Small Pixels' neural-network-based perceptual video optimizer. It operates on encoded video to reduce bitrate at a target level of perceptual quality, evaluated with VMAF and related objective metrics. EncodeIQ is the cloud service layer built on top of SPAIQ, handling ingestion, orchestration, multi-tenancy, and billing.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <h2>Start optimizing your<br>video library today.</h2>
+            <p>Join the early access program. We onboard teams individually — connect your S3 bucket, run a test batch, and see the savings in your first session.</p>
+            <form class="cta-form" id="ctaForm" onsubmit="handleSubmit(event)">
+              <input type="email" placeholder="you@company.com" required class="cta-input" aria-label="Work email address" />
+              <button type="submit" class="btn btn-primary btn-lg">Request early access</button>
+            </form>
+            <p class="cta-fine">No credit card required for the trial. 30-day free access to HD tier.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo footer-logo" aria-label="EncodeIQ">
+            <svg class="logo-svg" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="8" width="5" height="16" rx="1.5" fill="currentColor"/>
+              <rect x="8" y="4" width="5" height="24" rx="1.5" fill="currentColor"/>
+              <rect x="16" y="10" width="5" height="12" rx="1.5" fill="currentColor"/>
+              <rect x="24" y="6" width="5" height="20" rx="1.5" fill="currentColor"/>
+              <path d="M36 16 L42 16 M39 12 L43 16 L39 20" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="46" y="11" width="4" height="10" rx="1.5" fill="var(--color-accent)"/>
+              <rect x="53" y="8" width="4" height="16" rx="1.5" fill="var(--color-accent)"/>
+              <rect x="60" y="12" width="4" height="8" rx="1.5" fill="var(--color-accent)"/>
+              <rect x="67" y="9" width="4" height="14" rx="1.5" fill="var(--color-accent)"/>
+              <text x="78" y="22" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="currentColor">IQ</text>
+            </svg>
+            <span class="logo-text">EncodeIQ</span>
+          </a>
+          <p class="footer-tagline">Neural-network video optimization<br>for professional pipelines.</p>
+          <p class="footer-legal">© 2026 Graziano Labs Corp. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#how-it-works">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#use-cases">Use Cases</a>
+            <a href="#about">About</a>
+          </div>
+          <div class="footer-col">
+            <h4>Docs</h4>
+            <a href="#">API Reference</a>
+            <a href="#">Container Interface</a>
+            <a href="#">S3 Integration</a>
+            <a href="#">Quality Guide</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#cta">Contact</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="mono footer-domain">encodeiq.ai</span>
+        <span class="footer-tech">Powered by <span class="accent-text">SPAIQ</span> — Small Pixels neural network technology</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
