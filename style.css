@@ -54,9 +54,9 @@
   --color-border-subtle:  #161f2b;
   --color-divider:        #182030;
 
-  --color-text:           #dde3ec;
-  --color-text-muted:     #6b7c93;
-  --color-text-faint:     #3a4a5c;
+  --color-text:           #e4e9f1;
+  --color-text-muted:     #94a3bb;
+  --color-text-faint:     #6d809a;
   --color-text-inverse:   #080b10;
 
   /* Electric cyan — video signal */
@@ -112,7 +112,7 @@
     --color-bg: #080b10; --color-surface: #0d1117; --color-surface-2: #111820;
     --color-surface-raised: #161e28; --color-border: #1e2a38;
     --color-border-subtle: #161f2b; --color-divider: #182030;
-    --color-text: #dde3ec; --color-text-muted: #6b7c93; --color-text-faint: #3a4a5c;
+    --color-text: #e4e9f1; --color-text-muted: #94a3bb; --color-text-faint: #6d809a;
     --color-text-inverse: #080b10; --color-accent: #00cfe8;
     --color-accent-hover: #00b5cc; --color-accent-active: #0096ab;
     --color-accent-glow: rgba(0,207,232,0.15); --color-accent-subtle: rgba(0,207,232,0.08);
