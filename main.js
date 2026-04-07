@@ -9,7 +9,7 @@
 
   // ── Early Access Form Endpoint ──
   // Replace with your deployed Google Apps Script web app URL
-  const FORM_ENDPOINT = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycby_aa_fbFjA0ZKrLgXO-et93-FKzdGysGj-iYaRubb-trEStoYQuWSAfRbG41OIYRkFPQ/exec';
 
   // ── Dark Mode ──
   const root = document.documentElement;
