@@ -1,5 +1,5 @@
 // EncodeIQ Early Access — Google Apps Script
-const SHEET_ID = 'YOUR_SPREADSHEET_ID'; // ← Replace with your Google Sheet ID
+const SHEET_ID = '1jsxuegT6E7c2Gpj7Xm9pkt7nEY_qo2BNu3MZvcrtJT4';
 
 function doPost(e) {
   try {
