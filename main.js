@@ -7,6 +7,10 @@
 (function () {
   'use strict';
 
+  // ── Early Access Form Endpoint ──
+  // Replace with your deployed Google Apps Script web app URL
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+
   // ── Dark Mode ──
   const root = document.documentElement;
   const toggleBtn = document.querySelector('[data-theme-toggle]');
@@ -209,13 +213,39 @@
   themeObs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 
   // ── CTA form ──
-  window.handleSubmit = function (e) {
+  window.handleSubmit = async function (e) {
     e.preventDefault();
     const form = document.getElementById('ctaForm');
+    const input = form.querySelector('input');
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Thanks! We\'ll be in touch.';
+    const email = input.value.trim();
+
+    if (!email) return;
+
+    // Disable while submitting
     btn.disabled = true;
-    form.querySelector('input').disabled = true;
+    input.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'encodeiq-website' })
+      });
+      // no-cors means we can't read the response, but the request went through
+      btn.textContent = 'Thanks! We\'ll be in touch.';
+      btn.style.background = 'var(--color-surface-raised)';
+      btn.style.borderColor = 'var(--color-border)';
+      btn.style.color = 'var(--color-accent)';
+    } catch (err) {
+      btn.textContent = 'Request early access';
+      btn.disabled = false;
+      input.disabled = false;
+      input.style.borderColor = '#f04040';
+      console.error('Form submission error:', err);
+    }
   };
 
 })();
