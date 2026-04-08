@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   EncodeIQ — Design System & Stylesheet
+   EncodeIQ - Design System & Stylesheet
    Dark-first, terminal/technical aesthetic
    ═══════════════════════════════════════════════════ */
 
@@ -59,14 +59,14 @@
   --color-text-faint:     #6d809a;
   --color-text-inverse:   #080b10;
 
-  /* Electric cyan — video signal */
+  /* Electric cyan - video signal */
   --color-accent:         #00cfe8;
   --color-accent-hover:   #00b5cc;
   --color-accent-active:  #0096ab;
   --color-accent-glow:    rgba(0, 207, 232, 0.15);
   --color-accent-subtle:  rgba(0, 207, 232, 0.08);
 
-  /* Purple — AI/neural network secondary */
+  /* Purple - AI/neural network secondary */
   --color-secondary:      #7c5cfc;
   --color-secondary-glow: rgba(124, 92, 252, 0.15);
 
@@ -623,7 +623,7 @@ button { cursor: pointer; background: none; border: none; }
 }
 
 /* ═══════════════════════════════════════════
-   HOW IT WORKS — Pipeline
+   HOW IT WORKS - Pipeline
    ═══════════════════════════════════════════ */
 .how-it-works { background: var(--color-surface); }
 
@@ -1406,10 +1406,9 @@ button { cursor: pointer; background: none; border: none; }
   flex-wrap: wrap;
   gap: var(--space-4);
 }
-.footer-domain {
+.footer-legal-bottom {
   font-size: var(--text-xs);
   color: var(--color-text-faint);
-  letter-spacing: 0.06em;
 }
 .footer-tech {
   font-size: var(--text-xs);

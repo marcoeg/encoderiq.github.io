@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   EncodeIQ — Main JavaScript
+   EncodeIQ - Main JavaScript
    Canvas grid animation, scroll reveals,
    nav scroll awareness, dark mode toggle
    ═══════════════════════════════════════════ */
@@ -76,7 +76,7 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // ── Hero Canvas — animated grid with "signal" effect ──
+  // ── Hero Canvas - animated grid with "signal" effect ──
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
