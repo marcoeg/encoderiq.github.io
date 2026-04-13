@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page not found - EncodeIQ</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script>
+    // Redirect app routes (login, dashboard, etc.) to the app domain
+    var appPaths = ['/login', '/dashboard', '/projects', '/admin', '/api/'];
+    var path = window.location.pathname;
+    for (var i = 0; i < appPaths.length; i++) {
+      if (path.startsWith(appPaths[i])) {
+        window.location.replace('https://encodeiq.ai' + path);
+        break;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem;">
+    <div>
+      <h1 style="font-size:3rem;margin-bottom:1rem;">404</h1>
+      <p>Page not found.</p>
+      <p style="margin-top:1rem;"><a href="/" class="btn btn-primary">Back to EncodeIQ</a></p>
+    </div>
+  </div>
+</body>
+</html>
