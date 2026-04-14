@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://encodeiq.ai/sitemap.xml
+Sitemap: https://www.encodeiq.ai/sitemap.xml
