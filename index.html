@@ -8,14 +8,146 @@
   <meta property="og:title" content="EncodeIQ - AI Video Optimization" />
   <meta property="og:description" content="Cut bitrate by 40%. Quality unchanged. Neural-network optimization for professional video pipelines." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://encodeiq.ai/" />
+  <meta property="og:site_name" content="EncodeIQ" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EncodeIQ - AI Video Optimization" />
+  <meta name="twitter:description" content="Cut bitrate by 40%. Quality unchanged. Neural-network optimization for professional video pipelines." />
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://encodeiq.ai/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <meta name="keywords" content="video optimization, bitrate reduction, AI video encoding, VMAF, video compression, CDN optimization, neural network video, SPAIQ, professional video pipeline, ABR ladder" />
+  <meta name="author" content="Graziano Labs Corp." />
 
   <!-- Fonts: JetBrains Mono (display) + Geist (body) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@300;400;500;600&display=swap" as="style" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Graziano Labs Corp.",
+    "url": "https://encodeiq.ai",
+    "logo": "https://encodeiq.ai/favicon.svg",
+    "description": "A California corporation building AI-powered optimization tools for professional video infrastructure.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Palo Alto",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Marco Graziano"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EncodeIQ",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Cloud",
+    "description": "AI-powered video bitrate optimization service that reduces file sizes by up to 40% with no perceptual quality loss, verified by VMAF scoring.",
+    "url": "https://encodeiq.ai",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "SD Video Optimization",
+        "price": "0.15",
+        "priceCurrency": "USD",
+        "unitText": "per minute"
+      },
+      {
+        "@type": "Offer",
+        "name": "HD Video Optimization",
+        "price": "0.25",
+        "priceCurrency": "USD",
+        "unitText": "per minute"
+      },
+      {
+        "@type": "Offer",
+        "name": "4K+ Video Optimization",
+        "price": "0.45",
+        "priceCurrency": "USD",
+        "unitText": "per minute"
+      }
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "Graziano Labs Corp."
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What formats does EncodeIQ support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EncodeIQ accepts all Apple ProRes profiles (Proxy, LT, 422, 422 HQ, 4444, 4444 XQ) and Avid DNxHD 120/185 in QuickTime (.mov) containers. High-bitrate HEVC in .mov is also supported. Input and output codec families are preserved - a ProRes HQ in becomes a smaller ProRes HQ out."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does EncodeIQ change my CDN configuration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. In Mode A (pure compression), EncodeIQ writes optimized files back to the same S3 paths. Your CDN, player, and delivery infrastructure require zero changes. On next cache refresh, CDNs automatically serve the smaller files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is quality preserved?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SPAIQ uses VMAF-driven optimization - it targets your configured quality floor (default >= 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does billing work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Billing is per minute of video processed, metered at SD / HD / 4K+ resolution tiers. Usage is aggregated monthly and billed via Stripe. You receive an itemized invoice per project showing minutes processed by resolution tier and total cost. No minimums or commitments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I run EncodeIQ on my own AWS account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EncodeIQ is a hosted service - we run the Fargate processing infrastructure so you don't have to. Your S3 buckets remain in your own AWS account; EncodeIQ accesses them via cross-account IAM roles that you provision and control. A self-hosted option for enterprise customers is on the roadmap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is SPAIQ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SPAIQ is Small Pixels' neural-network-based perceptual video optimizer. It operates on encoded video to reduce bitrate at a target level of perceptual quality, evaluated with VMAF and related objective metrics. EncodeIQ is the cloud service layer built on top of SPAIQ, handling ingestion, orchestration, multi-tenancy, and billing."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -81,6 +213,7 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="hero">
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <noscript><div style="padding:4rem 2rem;text-align:center;color:var(--color-text-muted)">EncodeIQ - AI-powered video bitrate optimization. Reduce file sizes by up to 40% with no perceptual quality loss.</div></noscript>
       <div class="hero-content container">
         <div class="hero-badge">
           <span class="badge-dot"></span>
