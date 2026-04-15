@@ -612,61 +612,36 @@
           <p class="section-desc">Pay per minute of video processed. No monthly minimums, no seat licenses, no surprises. Contact sales for pricing details.</p>
         </div>
 
-        <div class="pricing-grid">
-          <div class="pricing-card reveal">
-            <div class="pricing-tier-label">SD</div>
-            <div class="pricing-price">
-              <span class="price-amount mono">$x.xx</span>
-              <span class="price-period">/ minute</span>
-            </div>
-            <p class="pricing-desc">Standard definition - up to 720p resolution</p>
-            <ul class="pricing-features">
-              <li>Up to 1280×720</li>
-              <li>ProRes Proxy, LT, 422</li>
-              <li>Fargate 2 vCPU / 8 GB</li>
-              <li>VMAF quality targeting</li>
-              <li>S3 ingress &amp; egress</li>
-            </ul>
-            <a href="#cta" class="btn btn-ghost btn-full">Contact Sales</a>
-          </div>
-
-          <div class="pricing-card pricing-card--featured reveal">
-            <div class="pricing-featured-badge">Most popular</div>
-            <div class="pricing-tier-label accent-text">HD</div>
-            <div class="pricing-price">
-              <span class="price-amount mono accent-text">$x.xx</span>
-              <span class="price-period">/ minute</span>
-            </div>
-            <p class="pricing-desc">High definition - up to 1080p resolution</p>
-            <ul class="pricing-features">
-              <li>Up to 1920×1080</li>
-              <li>Full ProRes family + DNxHD</li>
-              <li>Fargate 4 vCPU / 16 GB</li>
-              <li>Visual before/after frames</li>
-              <li>Mode A &amp; Mode B</li>
-            </ul>
-            <a href="#cta" class="btn btn-primary btn-full">Contact Sales</a>
-          </div>
-
-          <div class="pricing-card reveal">
-            <div class="pricing-tier-label">4K+</div>
-            <div class="pricing-price">
-              <span class="price-amount mono">$x.xx</span>
-              <span class="price-period">/ minute</span>
-            </div>
-            <p class="pricing-desc">Ultra high definition - 4K and above</p>
-            <ul class="pricing-features">
-              <li>4K, 6K, 8K UHD</li>
-              <li>ProRes 4444/4444 XQ</li>
-              <li>Fargate 8 vCPU / 30 GB</li>
-              <li>Priority processing queue</li>
-              <li>Dedicated support SLA</li>
-            </ul>
-            <a href="#cta" class="btn btn-ghost btn-full">Contact Sales</a>
-          </div>
+        <div class="pricing-table-wrap reveal">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Standard<span class="pricing-th-sub">up to 30 fps</span></th>
+                <th>High Frame Rate<span class="pricing-th-sub">31 - 60 fps</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pricing-tier-cell">SD<span class="pricing-td-sub">up to 720p</span></td>
+                <td><span class="price-amount mono">$0.04</span><span class="price-period"> / min</span></td>
+                <td><span class="price-amount mono">$0.06</span><span class="price-period"> / min</span></td>
+              </tr>
+              <tr class="pricing-row--featured">
+                <td class="pricing-tier-cell">HD<span class="pricing-td-sub">up to 1080p</span></td>
+                <td><span class="price-amount mono accent-text">$0.06</span><span class="price-period"> / min</span></td>
+                <td><span class="price-amount mono accent-text">$0.10</span><span class="price-period"> / min</span></td>
+              </tr>
+              <tr>
+                <td class="pricing-tier-cell">UHD<span class="pricing-td-sub">4K and above</span></td>
+                <td><span class="price-amount mono">$0.15</span><span class="price-period"> / min</span></td>
+                <td><span class="price-amount mono">$0.25</span><span class="price-period"> / min</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <p class="pricing-note">All tiers include: VMAF quality reports, job metrics dashboard, S3 integration, side-by-side quality preview, and Stripe-managed invoicing. Volume discounts available - <a href="#cta" class="link-accent">contact us</a>.</p>
+        <p class="pricing-note">6 tiers across 3 resolutions &times; 2 frame-rate bands. All tiers include: VMAF quality reports, job metrics dashboard, S3 integration, side-by-side quality preview, and Stripe-managed invoicing. Volume discounts available - <a href="#cta" class="link-accent">contact us</a>.</p>
       </div>
     </section>
 
@@ -791,7 +766,7 @@
               <input type="email" placeholder="you@company.com" required class="cta-input" aria-label="Work email address" />
               <button type="submit" class="btn btn-primary btn-lg">Request early access</button>
             </form>
-            <p class="cta-fine">No credit card required for the free trial. 30-day free access to HD tier (up to 30 minutes of video).</p>
+            <p class="cta-fine">No credit card required for the free trial. 30-day free access to HD Standard tier (up to 30 minutes of video).</p>
           </div>
         </div>
       </div>
