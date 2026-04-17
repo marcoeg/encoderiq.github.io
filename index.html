@@ -21,7 +21,7 @@
   <link rel="canonical" href="https://www.encodeiq.ai/" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0a0e17" />
-  <meta name="keywords" content="video optimization, bitrate reduction, AI video encoding, VMAF, video compression, CDN optimization, neural network video, SPAIQ, professional video pipeline, ABR ladder" />
+  <meta name="keywords" content="video optimization, bitrate reduction, AI video encoding, VMAF, video compression, CDN optimization, neural network video, professional video pipeline, ABR ladder" />
   <meta name="author" content="Graziano Labs Corp." />
 
   <!-- Fonts: JetBrains Mono (display) + Geist (body) -->
@@ -100,7 +100,7 @@
         "name": "How is quality preserved?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SPAIQ uses VMAF-driven optimization - it targets your configured quality floor (default >= 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged."
+          "text": "EncodeIQ uses VMAF-driven optimization - it targets your configured quality floor (default >= 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged."
         }
       },
       {
@@ -117,14 +117,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "EncodeIQ is a hosted service - we run the Fargate processing infrastructure so you don't have to. Your S3 buckets remain in your own AWS account; EncodeIQ accesses them via cross-account IAM roles that you provision and control. A self-hosted option for enterprise customers is on the roadmap."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is SPAIQ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "SPAIQ is Small Pixels' neural-network-based perceptual video optimizer. It operates on encoded video to reduce bitrate at a target level of perceptual quality, evaluated with VMAF and related objective metrics. EncodeIQ is the cloud service layer built on top of SPAIQ, handling ingestion, orchestration, multi-tenancy, and billing."
         }
       }
     ]
@@ -197,10 +189,10 @@
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
       <noscript><div style="padding:4rem 2rem;text-align:center;color:var(--color-text-muted)">EncodeIQ - AI-powered video bitrate optimization. Reduce file sizes by up to 40% with no perceptual quality loss.</div></noscript>
       <div class="hero-content container">
-        <div class="hero-badge">
+        <!-- <div class="hero-badge">
           <span class="badge-dot"></span>
           <a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Powered by SPAIQ Neural Network Technology</a>
-        </div>
+        </div> -->
         <h1 class="hero-headline">
           Cut video bitrate<br class="br-desktop"> by <span class="accent-text">40%.</span><br>
           Quality unchanged.
@@ -311,7 +303,8 @@
 
           <div class="pipeline-arrow" aria-hidden="true">
             <div class="arrow-line"></div>
-            <div class="arrow-label mono">SPAIQ Engine</div>
+            <!-- <div class="arrow-label mono">SPAIQ Engine</div> -->
+            <div class="arrow-label mono">EncodeIQ Engine</div>
           </div>
 
           <!-- Step 2 -->
@@ -330,7 +323,8 @@
             </div>
             <div class="step-number mono accent-text">02</div>
             <h3>Neural Optimization</h3>
-            <p>SPAIQ's perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible - without visible degradation.</p>
+            <!-- <p>SPAIQ's perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible - without visible degradation.</p> -->
+            <p>Our perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible - without visible degradation.</p>
             <ul class="step-details">
               <li>Frame-level perceptual scoring</li>
               <li>VMAF quality targeting (strict or aggressive)</li>
@@ -427,7 +421,8 @@
             <div class="feature-card-inner">
               <div class="feature-tag">Mode B</div>
               <h3>ABR Ladder Generation</h3>
-              <p>Build a complete SPAIQ-optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p>
+              <!-- <p>Build a complete SPAIQ-optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p> -->
+              <p>Build a complete optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p>
               <div class="abr-ladder">
                 <div class="ladder-rung"><span class="mono">2160p</span><div class="rung-bar" style="--w:90%"></div></div>
                 <div class="ladder-rung"><span class="mono">1080p</span><div class="rung-bar" style="--w:65%"></div></div>
@@ -685,7 +680,8 @@
             <p>As video consumption explodes and delivery costs scale with every stream, organizations face an urgent challenge - reducing bandwidth spend without sacrificing the viewing experience their audiences expect.</p>
             <p>EncodeIQ makes this possible. We bring neural-network perceptual optimization to professional video pipelines, revealing exactly how much bitrate can be removed while maintaining studio-grade quality - measured, guaranteed, and auditable.</p>
             <blockquote class="about-callout">
-              <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. SPAIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can.</blockquote>
+              <!-- <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. SPAIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can. -->
+              <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. EncodeIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can.</blockquote>
           </div>
 
           <!-- Company -->
@@ -734,10 +730,10 @@
             </div>
           </div>
 
-          <!-- SPAIQ credit -->
+          <!-- SPAIQ credit
           <div class="about-credit reveal">
             <p>EncodeIQ is built on <a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" class="accent-text" style="text-decoration:none">SPAIQ</a> - the neural-network perceptual video optimizer developed by Small Pixels. SPAIQ's frame-level ML analysis is the engine behind EncodeIQ's quality-preserving compression, delivering measurable bitrate savings verified against industry-standard VMAF scores.</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -761,7 +757,8 @@
           </details>
           <details class="faq-item reveal">
             <summary>How is quality preserved?</summary>
-            <p>SPAIQ uses VMAF-driven optimization - it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p>
+            <!-- <p>SPAIQ uses VMAF-driven optimization - it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p> -->
+            <p>EncodeIQ uses VMAF-driven optimization - it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p>
           </details>
           <details class="faq-item reveal">
             <summary>How does billing work?</summary>
@@ -771,10 +768,10 @@
             <summary>Can I run EncodeIQ on my own AWS account?</summary>
             <p>EncodeIQ is a hosted service - we run the Fargate processing infrastructure so you don't have to. Your S3 buckets remain in your own AWS account; EncodeIQ accesses them via cross-account IAM roles that you provision and control. A self-hosted option for enterprise customers is on the roadmap.</p>
           </details>
-          <details class="faq-item reveal">
+          <!-- <details class="faq-item reveal">
             <summary>What is SPAIQ?</summary>
             <p>SPAIQ is Small Pixels' neural-network-based perceptual video optimizer. It operates on encoded video to reduce bitrate at a target level of perceptual quality, evaluated with VMAF and related objective metrics. EncodeIQ is the cloud service layer built on top of SPAIQ, handling ingestion, orchestration, multi-tenancy, and billing.</p>
-          </details>
+          </details> -->
         </div>
       </div>
     </section>
@@ -849,7 +846,7 @@
       </div>
       <div class="footer-bottom">
         <span class="footer-legal-bottom">&copy; 2026 Graziano Labs Corp. All rights reserved.</span>
-        <span class="footer-tech"><a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Powered by SPAIQ - Small Pixels neural network technology</a></span>
+<!-- <span class="footer-tech"><a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Powered by SPAIQ - Small Pixels neural network technology</a></span> -->
       </div>
     </div>
   </footer>
