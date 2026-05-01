@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EncodeIQ - AI Video Optimization for Professional Pipelines</title>
-  <meta name="description" content="EncodeIQ reduces video bitrate by up to 40% with no perceptual quality loss. Neural-network optimization that slots into your existing CDN pipeline." />
+  <meta name="description" content="EncodeIQ is Kelvin v1.0: a neural pre-encoder for H.264 that cuts bitrate 27% on average, up to 71% at broadcast quality on natural content. Same H.264 output, same CDN, audited against UVG and MCL-JCV reference clips." />
   <meta property="og:title" content="EncodeIQ - AI Video Optimization" />
-  <meta property="og:description" content="Cut bitrate by 40%. Quality unchanged. Neural-network optimization for professional video pipelines." />
+  <meta property="og:description" content="Kelvin v1.0: a neural pre-encoder for H.264. -27% UVG mean, -71% at VMAF 94 on Beauty. Validated end-to-end with BD-rate methodology." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.encodeiq.ai/" />
   <meta property="og:site_name" content="EncodeIQ" />
@@ -15,7 +15,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="EncodeIQ - AI Video Optimization" />
-  <meta name="twitter:description" content="Cut bitrate by 40%. Quality unchanged. Neural-network optimization for professional video pipelines." />
+  <meta name="twitter:description" content="Kelvin v1.0: a neural pre-encoder for H.264. -27% UVG mean, -71% at VMAF 94 on Beauty. Validated end-to-end with BD-rate methodology." />
 
   <!-- SEO -->
   <link rel="canonical" href="https://www.encodeiq.ai/" />
@@ -61,7 +61,7 @@
     "name": "EncodeIQ",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Cloud",
-    "description": "AI-powered video bitrate optimization service that reduces file sizes by up to 40% with no perceptual quality loss, verified by VMAF scoring.",
+    "description": "Neural pre-encoder for H.264 that reduces bitrate 27% on average and up to 71% at broadcast quality on natural content. Validated with BD-rate methodology (PCHIP, four-point QP grid, libx264 -threads 1, libvmaf two-call) against UVG and MCL-JCV reference clips.",
     "url": "https://www.encodeiq.ai",
     "offers": {
       "@type": "Offer",
@@ -84,7 +84,7 @@
         "name": "What formats does EncodeIQ support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "EncodeIQ accepts all Apple ProRes profiles (Proxy, LT, 422, 422 HQ, 4444, 4444 XQ) and Avid DNxHD 120/185 in QuickTime (.mov) containers. High-bitrate HEVC in .mov is also supported. Input and output codec families are preserved - a ProRes HQ in becomes a smaller ProRes HQ out."
+          "text": "EncodeIQ v1.0 accepts raw YUV (4:2:0, 8-bit) and the Apple ProRes 422 family (Proxy, LT, 422, 422 HQ; FourCCs apco, apcs, apcn, apch). ProRes 4444 / 4444 XQ / 4444 RAW HQ are rejected at submit. Mode A outputs preprocessed pixels in the same family. Mode B and Mode C output H.264 mp4s."
         }
       },
       {
@@ -92,7 +92,7 @@
         "name": "Does EncodeIQ change my CDN configuration?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. In Mode A (pure compression), EncodeIQ writes optimized files back to the same S3 paths. Your CDN, player, and delivery infrastructure require zero changes. On next cache refresh, CDNs automatically serve the smaller files."
+          "text": "No. EncodeIQ writes optimized files back to S3 paths you control. Mode A preserves the input format for downstream encoder compatibility; Mode B and Mode C produce standard H.264 mp4s. Your CDN, player, and delivery infrastructure require zero changes."
         }
       },
       {
@@ -100,7 +100,7 @@
         "name": "How is quality preserved?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "EncodeIQ uses VMAF-driven optimization - it targets your configured quality floor (default >= 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged."
+          "text": "EncodeIQ reports BD-rate against the master rather than enforcing a single VMAF floor. Mode C v2 sweeps a four-point QP grid {22, 27, 32, 37} and produces BD-VMAF, BD-VMAF-NEG, BD-PSNR, and BD-MS-SSIM via PCHIP integration (bjontegaard 1.3.0). Customers see the full rate-distortion curve and the iso-quality bitrate savings at any target VMAF. Determinism is verified: BD-VMAF reproduces to three decimals across cloud runs at the same checkpoint."
         }
       },
       {
@@ -156,6 +156,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#use-cases">Use Cases</a>
         <a href="#about">About</a>
+        <a href="#resources">Resources</a>
         <a href="#faq">FAQ</a>
       </nav>
 
@@ -177,6 +178,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#use-cases">Use Cases</a>
       <a href="#about">About</a>
+      <a href="#resources">Resources</a>
       <a href="#faq">FAQ</a>
       <a href="#cta" class="btn btn-primary" style="margin-top:8px;">Request access</a>
     </div>
@@ -187,18 +189,19 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="hero">
       <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-      <noscript><div style="padding:4rem 2rem;text-align:center;color:var(--color-text-muted)">EncodeIQ - AI-powered video bitrate optimization. Reduce file sizes by up to 40% with no perceptual quality loss.</div></noscript>
+      <noscript><div style="padding:4rem 2rem;text-align:center;color:var(--color-text-muted)">EncodeIQ - Kelvin v1.0, a neural pre-encoder for H.264. -27% UVG mean, up to -71% at VMAF 94 on natural content.</div></noscript>
       <div class="hero-content container">
         <!-- <div class="hero-badge">
           <span class="badge-dot"></span>
-          <a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Powered by SPAIQ Neural Network Technology</a>
+          Kelvin v1.0 / Neural pre-encoder for H.264
         </div> -->
         <h1 class="hero-headline">
-          Cut video bitrate<br class="br-desktop"> by <span class="accent-text">40%.</span><br>
+          Cut bitrate <span class="accent-text">27% on average.</span><br class="br-desktop">
+          Up to <span class="accent-text">71%</span> on the right content.<br>
           Quality unchanged.
         </h1>
         <p class="hero-sub">
-          EncodeIQ applies ML-based perceptual optimization as an upstream layer in your video delivery pipeline - smaller files, same VMAF, unchanged CDN.
+          Kelvin v1.0 is a neural pre-encoder that sits in front of libx264. Same H.264 output, same CDN, smaller files. Validated end-to-end against UVG and MCL-JCV academic reference clips with BD-rate methodology.
         </p>
         <div class="hero-ctas">
           <a href="#cta" class="btn btn-primary btn-lg">Start free trial</a>
@@ -209,18 +212,18 @@
         </div>
         <div class="hero-metrics">
           <div class="hero-metric">
-            <span class="metric-value accent-text">30–40%</span>
-            <span class="metric-label">Bitrate reduction</span>
+            <span class="metric-value accent-text">-27.59%</span>
+            <span class="metric-label">BD-VMAF mean (UVG)</span>
           </div>
           <div class="hero-metric-divider"></div>
           <div class="hero-metric">
-            <span class="metric-value">VMAF ≥ 93</span>
-            <span class="metric-label">Quality guarantee</span>
+            <span class="metric-value">-71.1%</span>
+            <span class="metric-label">Bitrate at VMAF 94 (Beauty)</span>
           </div>
           <div class="hero-metric-divider"></div>
           <div class="hero-metric">
-            <span class="metric-value">Zero</span>
-            <span class="metric-label">Pipeline changes</span>
+            <span class="metric-value">3 decimals</span>
+            <span class="metric-label">Cloud determinism (BD-VMAF)</span>
           </div>
         </div>
       </div>
@@ -292,19 +295,18 @@
             </div>
             <div class="step-number mono">01</div>
             <h3>Ingest Mezzanines</h3>
-            <p>Connect your S3 bucket or upload ProRes / DNxHD mezzanines directly. EncodeIQ validates format, resolution, and codec profile before queuing.</p>
+            <p>Connect your S3 bucket or upload masters directly. EncodeIQ validates codec, FourCC, resolution, and pixel format before queuing.</p>
             <ul class="step-details">
               <li>Amazon S3, Cloudflare R2, Backblaze B2</li>
-              <li>Apple ProRes (Proxy → 4444 XQ)</li>
-              <li>Avid DNxHD 120 / 185</li>
+              <li>Apple ProRes 422 family (apco, apcs, apcn, apch)</li>
+              <li>Raw YUV 4:2:0 8-bit</li>
               <li>Resumable direct uploads via browser</li>
             </ul>
           </div>
 
           <div class="pipeline-arrow" aria-hidden="true">
             <div class="arrow-line"></div>
-            <!-- <div class="arrow-label mono">SPAIQ Engine</div> -->
-            <div class="arrow-label mono">EncodeIQ Engine</div>
+            <div class="arrow-label mono">Kelvin Engine</div>
           </div>
 
           <!-- Step 2 -->
@@ -322,14 +324,13 @@
               </svg>
             </div>
             <div class="step-number mono accent-text">02</div>
-            <h3>Neural Optimization</h3>
-            <!-- <p>SPAIQ's perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible - without visible degradation.</p> -->
-            <p>Our perceptual neural network analyzes each frame, targeting your quality threshold (VMAF) while pushing bitrate as low as possible - without visible degradation.</p>
+            <h3>Kelvin Neural Pre-Encoder</h3>
+            <p>The Kelvin v1.0 model rewrites the master pixels for perceptual efficiency before libx264 sees them. Same H.264 syntax out, smaller files at iso-quality. Three modes for three deployment shapes.</p>
             <ul class="step-details">
-              <li>Frame-level perceptual scoring</li>
-              <li>VMAF quality targeting (strict or aggressive)</li>
-              <li>Parallel Fargate tasks - no waiting</li>
-              <li>Before/after frame comparison</li>
+              <li>Mode A: preprocessing only, ship the master</li>
+              <li>Mode B: iso-quality VMAF target with matched baseline</li>
+              <li>Mode C v2: BD-rate evaluation across a four-point QP grid</li>
+              <li>Per-job audit trail with checkpoint hash and provenance</li>
             </ul>
           </div>
 
@@ -354,7 +355,7 @@
             <ul class="step-details">
               <li>In-place overwrite or side-by-side output</li>
               <li>Same object keys - zero CDN reconfiguration</li>
-              <li>HLS/DASH ABR ladder support (Mode B)</li>
+              <li>Standard H.264 mp4 outputs (Mode B and Mode C v2)</li>
               <li>Estimated CDN cost reduction dashboard</li>
             </ul>
           </div>
@@ -395,23 +396,23 @@
 
           <div class="feature-card reveal feature-card--large">
             <div class="feature-card-inner">
-              <div class="feature-tag">Mode A</div>
-              <h3>Pure Compression Optimization</h3>
-              <p>Optimize ProRes and DNxHD mezzanines without touching the container format, codec family, or delivery URLs. Your CDN serves smaller files with zero reconfiguration.</p>
+              <div class="feature-tag">Mode C v2</div>
+              <h3>BD-Rate Evaluation</h3>
+              <p>Sweep a four-point QP grid {22, 27, 32, 37} on your master and on a libx264 baseline. Compute BD-VMAF, BD-VMAF-NEG, BD-PSNR, and BD-MS-SSIM via PCHIP integration. The deliverable is a rate-distortion curve with iso-quality bitrate savings at any target VMAF, plus a full audit trail.</p>
               <div class="feature-visual">
                 <div class="compression-bars">
                   <div class="bar-group">
                     <div class="bar bar-before" style="--h:100%"></div>
-                    <span class="bar-label">Before</span>
+                    <span class="bar-label">Baseline libx264</span>
                   </div>
                   <div class="bar-group">
-                    <div class="bar bar-after" style="--h:60%"></div>
-                    <span class="bar-label accent-text">After</span>
+                    <div class="bar bar-after" style="--h:53%"></div>
+                    <span class="bar-label accent-text">Kelvin v1.0</span>
                   </div>
                 </div>
                 <div class="compression-stat">
-                  <span class="stat-value accent-text">40%</span>
-                  <span class="stat-unit">smaller</span>
+                  <span class="stat-value accent-text">-47%</span>
+                  <span class="stat-unit">BD-VMAF on videoSRC01</span>
                 </div>
               </div>
             </div>
@@ -420,15 +421,16 @@
           <div class="feature-card reveal">
             <div class="feature-card-inner">
               <div class="feature-tag">Mode B</div>
-              <h3>ABR Ladder Generation</h3>
-              <!-- <p>Build a complete SPAIQ-optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p> -->
-              <p>Build a complete optimized HLS/DASH ABR ladder from your mezzanines. Every rung tuned for quality-bitrate efficiency.</p>
-              <div class="abr-ladder">
-                <div class="ladder-rung"><span class="mono">2160p</span><div class="rung-bar" style="--w:90%"></div></div>
-                <div class="ladder-rung"><span class="mono">1080p</span><div class="rung-bar" style="--w:65%"></div></div>
-                <div class="ladder-rung"><span class="mono">720p</span><div class="rung-bar" style="--w:42%"></div></div>
-                <div class="ladder-rung"><span class="mono">480p</span><div class="rung-bar" style="--w:25%"></div></div>
-              </div>
+              <h3>Iso-Quality Compression</h3>
+              <p>Kelvin enhances the master, then a single-pass libx264 RD-search lands within ±0.5 of your target VMAF. A second RD-search on the raw master produces a matched-VMAF baseline. The deliverable is the customer-facing H.264 mp4 plus the matched baseline, so the bitrate delta is a true iso-quality apples-to-apples comparison. Use when you have ground-truth masters and want absolute quality control.</p>
+            </div>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-card-inner">
+              <div class="feature-tag">Mode A</div>
+              <h3>Preprocessing Only</h3>
+              <p>Run Kelvin on the master, write the optimized pixels back. No encode step, no metric computation. Use after Mode C or Mode B has validated the gain on your content. Ship the optimized master to your existing encoder ladder and pick up the savings downstream.</p>
             </div>
           </div>
 
@@ -437,8 +439,8 @@
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
               </div>
-              <h3>VMAF Quality Guarantee</h3>
-              <p>Set a VMAF floor (e.g., ≥ 93). EncodeIQ will never deliver a file below your threshold - strict mode enforces it per asset.</p>
+              <h3>Audit-Trail Provenance</h3>
+              <p>Every Mode C v2 job produces a signed summary.json with checkpoint SHA-256, container image digest, ffmpeg / libvmaf versions, and full RD points. BD-VMAF reproduces to three decimals across cloud runs at the same checkpoint.</p>
             </div>
           </div>
 
@@ -493,16 +495,16 @@
       <div class="container">
         <div class="stats-grid">
           <div class="stat-card reveal">
-            <div class="stat-number mono accent-text">30–40<span class="stat-unit">%</span></div>
-            <div class="stat-label">Bitrate reduction on ProRes and DNxHD mezzanines</div>
+            <div class="stat-number mono accent-text">-27.59<span class="stat-unit">%</span></div>
+            <div class="stat-label">BD-VMAF mean on UVG, full sweep, libx264 baseline</div>
           </div>
           <div class="stat-card reveal">
-            <div class="stat-number mono">≥ 93<span class="stat-unit"> VMAF</span></div>
-            <div class="stat-label">Perceptual quality floor, guaranteed per asset</div>
+            <div class="stat-number mono">-71.1<span class="stat-unit">%</span></div>
+            <div class="stat-label">Bitrate at VMAF 94 on Beauty (UVG, 1080p)</div>
           </div>
           <div class="stat-card reveal">
-            <div class="stat-number mono accent-text">6</div>
-            <div class="stat-label">ProRes profiles supported: Proxy through 4444 XQ</div>
+            <div class="stat-number mono accent-text">3</div>
+            <div class="stat-label">Decimals of cloud determinism on BD-VMAF, same checkpoint</div>
           </div>
           <div class="stat-card reveal">
             <div class="stat-number mono">0</div>
@@ -553,7 +555,7 @@
               </svg>
             </div>
             <h3>Post-Production Houses</h3>
-            <p>Compress mezzanine archives without changing format or codec family. Store more ProRes at lower cost - original quality is preserved for future re-encodes.</p>
+            <p>Compress ProRes 422 archives without changing the codec family. Store more masters at lower cost; original quality is preserved for future re-encodes via Mode A.</p>
           </div>
           <div class="use-case reveal">
             <div class="use-case-icon">
@@ -617,9 +619,9 @@
             <p class="pricing-desc">Standard definition - up to 720p resolution</p>
             <ul class="pricing-features">
               <li>Up to 1280×720</li>
-              <li>ProRes Proxy, LT, 422</li>
+              <li>ProRes 422 family + raw YUV</li>
               <li>Fargate 2 vCPU / 8 GB</li>
-              <li>VMAF quality targeting</li>
+              <li>Mode A + Mode C v2</li>
               <li>S3 ingress &amp; egress</li>
             </ul>
             <a href="#cta" class="btn btn-ghost btn-full">Contact Sales</a>
@@ -635,10 +637,10 @@
             <p class="pricing-desc">High definition - up to 1080p resolution</p>
             <ul class="pricing-features">
               <li>Up to 1920×1080</li>
-              <li>Full ProRes family + DNxHD</li>
-              <li>Fargate 4 vCPU / 16 GB</li>
-              <li>Visual before/after frames</li>
-              <li>Mode A &amp; Mode B</li>
+              <li>ProRes 422 family + raw YUV</li>
+              <li>Fargate 4 vCPU / 16 GB / GPU</li>
+              <li>Operating-points UI + audit trail</li>
+              <li>Mode A + Mode B + Mode C v2</li>
             </ul>
             <a href="#cta" class="btn btn-primary btn-full">Contact Sales</a>
           </div>
@@ -651,9 +653,9 @@
             </div>
             <p class="pricing-desc">Ultra high definition - 4K and above</p>
             <ul class="pricing-features">
-              <li>4K, 6K, 8K UHD</li>
-              <li>ProRes 4444/4444 XQ</li>
-              <li>Fargate 8 vCPU / 30 GB</li>
+              <li>4K and above</li>
+              <li>ProRes 422 HQ + raw YUV</li>
+              <li>Fargate 8 vCPU / 30 GB / GPU</li>
               <li>Priority processing queue</li>
               <li>Dedicated support SLA</li>
             </ul>
@@ -680,8 +682,7 @@
             <p>As video consumption explodes and delivery costs scale with every stream, organizations face an urgent challenge - reducing bandwidth spend without sacrificing the viewing experience their audiences expect.</p>
             <p>EncodeIQ makes this possible. We bring neural-network perceptual optimization to professional video pipelines, revealing exactly how much bitrate can be removed while maintaining studio-grade quality - measured, guaranteed, and auditable.</p>
             <blockquote class="about-callout">
-              <!-- <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. SPAIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can. -->
-              <strong>The EncodeIQ Difference:</strong> Legacy encoders target technical metrics. EncodeIQ targets <em>what the human eye actually sees</em>. Frame-by-frame perceptual analysis finds bitrate savings no conventional encoder can.</blockquote>
+              <strong>The EncodeIQ Difference:</strong> Conventional encoders work on the input as given. Kelvin v1.0 is a neural pre-encoder that rewrites the master pixels for perceptual efficiency before libx264 sees them. The result is the same H.264 bitstream syntax with smaller files at iso-quality, validated curve-by-curve against academic reference clips.</blockquote>
           </div>
 
           <!-- Company -->
@@ -702,11 +703,11 @@
               <div class="about-expertise">
                 <div class="expertise-item">
                   <span class="expertise-title">Video Engineering</span>
-                  <span class="expertise-desc">ProRes, DNxHD, HEVC, AV1 codecs</span>
+                  <span class="expertise-desc">H.264, HEVC, AV1, VP9 codecs</span>
                 </div>
                 <div class="expertise-item">
                   <span class="expertise-title">Perceptual Quality</span>
-                  <span class="expertise-desc">VMAF-driven optimization</span>
+                  <span class="expertise-desc">BD-rate methodology, libvmaf, PCHIP</span>
                 </div>
                 <div class="expertise-item">
                   <span class="expertise-title">Cloud Architecture</span>
@@ -730,10 +731,7 @@
             </div>
           </div>
 
-          <!-- SPAIQ credit
-          <div class="about-credit reveal">
-            <p>EncodeIQ is built on <a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" class="accent-text" style="text-decoration:none">SPAIQ</a> - the neural-network perceptual video optimizer developed by Small Pixels. SPAIQ's frame-level ML analysis is the engine behind EncodeIQ's quality-preserving compression, delivering measurable bitrate savings verified against industry-standard VMAF scores.</p>
-          </div> -->
+
         </div>
       </div>
     </section>
@@ -749,29 +747,50 @@
         <div class="faq-list">
           <details class="faq-item reveal">
             <summary>What formats does EncodeIQ support?</summary>
-            <p>EncodeIQ accepts all Apple ProRes profiles (Proxy, LT, 422, 422 HQ, 4444, 4444 XQ) and Avid DNxHD 120/185 in QuickTime (.mov) containers. High-bitrate HEVC in .mov is also supported. Input and output codec families are preserved - a ProRes HQ in becomes a smaller ProRes HQ out.</p>
+            <p>EncodeIQ v1.0 accepts raw YUV (4:2:0, 8-bit) and the Apple ProRes 422 family (Proxy, LT, 422, 422 HQ; FourCCs apco, apcs, apcn, apch). ProRes 4444, 4444 XQ, and 4444 RAW HQ are rejected at submit. Mode A outputs preprocessed pixels in the same family as the input. Mode B and Mode C v2 output standard H.264 mp4s.</p>
           </details>
           <details class="faq-item reveal">
             <summary>Does EncodeIQ change my CDN configuration?</summary>
-            <p>No. In Mode A (pure compression), EncodeIQ writes optimized files back to the same S3 paths. Your CDN, player, and delivery infrastructure require zero changes. On next cache refresh, CDNs automatically serve the smaller files.</p>
+            <p>No. EncodeIQ writes optimized files back to S3 paths you control. Mode A preserves the input format for downstream encoder compatibility; Mode B and Mode C v2 produce standard H.264 mp4s. Your CDN, player, and delivery infrastructure require zero changes.</p>
           </details>
           <details class="faq-item reveal">
-            <summary>How is quality preserved?</summary>
-            <!-- <p>SPAIQ uses VMAF-driven optimization - it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p> -->
-            <p>EncodeIQ uses VMAF-driven optimization - it targets your configured quality floor (default ≥ 93 VMAF) and measures the optimized output against the source. In strict mode, if the VMAF threshold cannot be met, EncodeIQ rejects the optimization and returns the original file unchanged. You can also configure aggressive mode for larger savings with a defined quality delta.</p>
+            <summary>How is quality measured and reported?</summary>
+            <p>EncodeIQ reports BD-rate against your master rather than enforcing a single VMAF floor. Mode C v2 sweeps a four-point QP grid {22, 27, 32, 37} on the Kelvin output and on a libx264 baseline, then computes BD-VMAF, BD-VMAF-NEG, BD-PSNR, and BD-MS-SSIM via PCHIP integration (bjontegaard 1.3.0). The deliverable is the full rate-distortion curve plus iso-quality bitrate savings at any target VMAF you choose. Mode B uses a single-pass libx264 RD-search to land within ±0.5 of a target VMAF and ships a matched-VMAF baseline so the bitrate delta is a true apples-to-apples comparison.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What is BD-rate, and why use it?</summary>
+            <p>BD-rate (Bjøntegaard delta rate) is the standard codec-comparison metric in the video research literature. It integrates the difference between two rate-distortion curves to produce a single number: the average percentage bitrate change at iso-quality across the operating range. Negative BD-VMAF means our pre-encoder produces the same perceptual quality at lower bitrate. We report BD-rate because customers can verify it independently with public tooling, and because it captures curve shape rather than a single operating point. Read the methodology in the technical report linked in Resources.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How do you prove the savings number?</summary>
+            <p>Every Mode C v2 job produces a signed summary.json containing the checkpoint SHA-256, the worker container image digest, ffmpeg and libvmaf versions, full RD points at every QP, and start and finish timestamps. The libx264 baseline mp4s are bit-exact deterministic (verified by sha256). BD-VMAF reproduces to three decimals across cloud runs at the same checkpoint. Anyone with the master can re-run the methodology and arrive at the same number.</p>
           </details>
           <details class="faq-item reveal">
             <summary>How does billing work?</summary>
-            <p>Billing is per minute of video processed, metered at SD / HD / 4K+ resolution tiers. Usage is aggregated monthly and billed via Stripe. You receive an itemized invoice per project showing minutes processed by resolution tier and total cost. No minimums or commitments.</p>
+            <p>Billing is per minute of video processed, metered at SD, HD, and 4K+ resolution tiers. Usage is aggregated monthly and billed via Stripe. You receive an itemized invoice per project showing minutes processed by resolution tier and total cost. No minimums or commitments.</p>
           </details>
           <details class="faq-item reveal">
             <summary>Can I run EncodeIQ on my own AWS account?</summary>
             <p>EncodeIQ is a hosted service - we run the Fargate processing infrastructure so you don't have to. Your S3 buckets remain in your own AWS account; EncodeIQ accesses them via cross-account IAM roles that you provision and control. A self-hosted option for enterprise customers is on the roadmap.</p>
           </details>
-          <!-- <details class="faq-item reveal">
-            <summary>What is SPAIQ?</summary>
-            <p>SPAIQ is Small Pixels' neural-network-based perceptual video optimizer. It operates on encoded video to reduce bitrate at a target level of perceptual quality, evaluated with VMAF and related objective metrics. EncodeIQ is the cloud service layer built on top of SPAIQ, handling ingestion, orchestration, multi-tenancy, and billing.</p>
-          </details> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RESOURCES ═══ -->
+    <section class="section resources" id="resources">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <span class="section-tag">RESOURCES</span>
+          <h2>Methodology, in depth.</h2>
+          <p class="section-desc">Read how Kelvin v1.0 works, what BD-rate methodology we run, and how we validated the published numbers.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item reveal" open>
+            <summary>Inside Kelvin v1.0 - A Neural Pre-Encoder for H.264</summary>
+            <p>A technical report on the neural pre-encoder for H.264 shipping inside cloud service EncodeIQ. Covers architecture, training, evaluation methodology (BD-rate via PCHIP, libvmaf two-call, four-point QP grid), full UVG and MCL-JCV sweep results, failure-mode taxonomy, cost per encoded hour, and the parity harness that gates every release. By Marco Graziano, Graziano Labs Corp.</p>
+            <p style="margin-top:1rem"><a href="https://marcoeg.medium.com/inside-kelvin-v1-0-a-neural-pre-encoder-for-h-264-3ce719f3e60b" class="link-accent" target="_blank" rel="noopener">Read the report on Medium &rarr;</a></p>
+          </details>
         </div>
       </div>
     </section>
@@ -829,11 +848,11 @@
             <a href="#about">About</a>
           </div>
           <div class="footer-col">
-            <h4>Docs</h4>
+            <h4>Resources</h4>
+            <a href="https://marcoeg.medium.com/inside-kelvin-v1-0-a-neural-pre-encoder-for-h-264-3ce719f3e60b" target="_blank" rel="noopener">Inside Kelvin v1.0</a>
             <a href="#">API Reference</a>
             <a href="#">Container Interface</a>
             <a href="#">S3 Integration</a>
-            <a href="#">Quality Guide</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
@@ -846,7 +865,7 @@
       </div>
       <div class="footer-bottom">
         <span class="footer-legal-bottom">&copy; 2026 Graziano Labs Corp. All rights reserved.</span>
-<!-- <span class="footer-tech"><a href="https://smallpixels.ai/products/spaiq-stream/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Powered by SPAIQ - Small Pixels neural network technology</a></span> -->
+
       </div>
     </div>
   </footer>
