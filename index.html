@@ -297,10 +297,9 @@
             <h3>Ingest Mezzanines</h3>
             <p>Connect your S3 bucket or upload masters directly. EncodeIQ validates codec, FourCC, resolution, and pixel format before queuing.</p>
             <ul class="step-details">
-              <li>Amazon S3, Cloudflare R2, Backblaze B2</li>
+              <li>Amazon S3</li>
               <li>Apple ProRes 422 family (apco, apcs, apcn, apch)</li>
               <li>Raw YUV 4:2:0 8-bit</li>
-              <li>Resumable direct uploads via browser</li>
             </ul>
           </div>
 
@@ -330,7 +329,6 @@
               <li>Mode A: preprocessing only, ship the master</li>
               <li>Mode B: iso-quality VMAF target with matched baseline</li>
               <li>Mode C v2: BD-rate evaluation across a four-point QP grid</li>
-              <li>Per-job audit trail with checkpoint hash and provenance</li>
             </ul>
           </div>
 
@@ -351,7 +349,7 @@
             </div>
             <div class="step-number mono">03</div>
             <h3>Deliver via Your CDN</h3>
-            <p>Optimized files land in your origin S3 bucket at the same paths. Your CDN, URLs, and playback infrastructure are completely unchanged - only the file size shrinks.</p>
+            <p>Optimized files land in your egress S3 bucket. Your CDN, URLs, and playback infrastructure are completely unchanged - only the file size shrinks.</p>
             <ul class="step-details">
               <li>In-place overwrite or side-by-side output</li>
               <li>Same object keys - zero CDN reconfiguration</li>
@@ -431,16 +429,6 @@
               <div class="feature-tag">Mode A</div>
               <h3>Preprocessing Only</h3>
               <p>Run Kelvin on the master, write the optimized pixels back. No encode step, no metric computation. Use after Mode C or Mode B has validated the gain on your content. Ship the optimized master to your existing encoder ladder and pick up the savings downstream.</p>
-            </div>
-          </div>
-
-          <div class="feature-card reveal">
-            <div class="feature-card-inner">
-              <div class="feature-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/></svg>
-              </div>
-              <h3>Audit-Trail Provenance</h3>
-              <p>Every Mode C v2 job produces a signed summary.json with checkpoint SHA-256, container image digest, ffmpeg / libvmaf versions, and full RD points. BD-VMAF reproduces to three decimals across cloud runs at the same checkpoint.</p>
             </div>
           </div>
 
@@ -620,7 +608,7 @@
             <ul class="pricing-features">
               <li>Up to 1280×720</li>
               <li>ProRes 422 family + raw YUV</li>
-              <li>Fargate 2 vCPU / 8 GB</li>
+              <li>EC2 / A10G GPU / 8 CPUs / 32 GB</li>
               <li>Mode A + Mode C v2</li>
               <li>S3 ingress &amp; egress</li>
             </ul>
@@ -638,7 +626,7 @@
             <ul class="pricing-features">
               <li>Up to 1920×1080</li>
               <li>ProRes 422 family + raw YUV</li>
-              <li>Fargate 4 vCPU / 16 GB / GPU</li>
+              <li>EC2 / A10G GPU / 8 CPUs / 32 GB</li>
               <li>Operating-points UI + audit trail</li>
               <li>Mode A + Mode B + Mode C v2</li>
             </ul>
@@ -655,7 +643,7 @@
             <ul class="pricing-features">
               <li>4K and above</li>
               <li>ProRes 422 HQ + raw YUV</li>
-              <li>Fargate 8 vCPU / 30 GB / GPU</li>
+              <li>EC2 / A10G GPU / 8 CPUs / 32 GB</li>
               <li>Priority processing queue</li>
               <li>Dedicated support SLA</li>
             </ul>
