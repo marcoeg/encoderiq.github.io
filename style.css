@@ -1608,3 +1608,103 @@ button { cursor: pointer; background: none; border: none; }
     padding: var(--space-6);
   }
 }
+
+/* ═══ DEMOS ═══ */
+.demos { background: var(--color-surface); }
+.demos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+@media (max-width: 900px) { .demos-grid { grid-template-columns: 1fr; } }
+
+.demo-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.demo-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.demo-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.demo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.demo-card:hover .demo-thumb img { transform: scale(1.03); }
+
+.demo-play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.demo-play svg {
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  transition: background 0.2s, transform 0.2s;
+}
+.demo-card:hover .demo-play svg {
+  background: var(--color-accent);
+  color: #0a0e17;
+  transform: scale(1.06);
+}
+
+.demo-meta {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+.demo-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+.demo-meta h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 0;
+}
+.demo-meta p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  flex: 1;
+}
+.demo-meta .link-accent {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+}
+
+.demos-note {
+  text-align: center;
+  margin-top: var(--space-8);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
