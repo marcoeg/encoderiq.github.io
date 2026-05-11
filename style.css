@@ -1477,19 +1477,16 @@ button { cursor: pointer; background: none; border: none; }
   font-style: italic;
   color: var(--color-text);
 }
-.about-benchmark-note {
-  margin-top: var(--space-4);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.7;
-}
-.about-benchmark-note a {
-  color: var(--color-accent);
+.about-callout-link {
+  color: #5ee2c2;
+  font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid var(--color-accent-subtle);
+  border-bottom: 1px solid rgba(94, 226, 194, 0.4);
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
 }
-.about-benchmark-note a:hover {
-  border-bottom-color: var(--color-accent);
+.about-callout-link:hover {
+  color: #8ff0d8;
+  border-bottom-color: #8ff0d8;
 }
 
 /* Company card */
